@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sign Language Interpretation</title>
+ 
+<style>
+    body{
+        margin:0px;
+        overflow: hidden;
+    }
+    h1{
+        font-family:sans-serif;
+        color: white;
+        margin: 26px  0px;
+        text-align:center;
+        font-size: 2rem;
+        }
+        .camera-bg{
+            background-image:url(assets/images/Camera/pexels-scott-webb-2117937.jpg);
+            background-size:cover ;
+            background-repeat: no-repeat;
+           
+           z-index:1;
+           width:100%;
+           float: left;
+        }
+#container {
+	margin: 0px auto;
+	width: 800px;
+	height: 600px;
+	border: 4px #333 solid;
+    border-radius:20px;
+    box-shadow: 2rem;
+    margin-bottom: 80px;
+}
+#videoElement {
+	width: 800px;
+	height: 600px;
+	background-color: #666;
+    border-radius:16px;
+    box-shadow: 2rem;
+   
+}
+</style>
+</head>
+ 
+<body>
+    <div class="camera-bg">
+    <h1>Welcome To Sign Language Interpretation</h1>
+<div id="container">
+	<video autoplay="true" id="videoElement">
+	
+	</video>
+</div></div>
+<script>
+   let video = document.querySelector("#videoElement");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    })
+
+}else{
+    console.log("getUserMedia not supported");
+}
+
+
+
+</script>
+</body>
+</html>
